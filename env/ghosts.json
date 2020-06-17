@@ -1,14 +1,26 @@
 {
     "inky": {
         "x": 100,
-        "y": 200
+        "y": 200,
+        "eyeHue": 0.16,
+        "bandHue": 0.2
     },
     "pinky": {
         "x": 500,
-        "y": 300
+        "y": 300,
+        "eyeHue": 0.96,
+        "bandHue": 0.9
     },
     "clyde": {
         "x": 200,
-        "y": 500
+        "y": 500,
+        "eyeHue": 0.50,
+        "bandHue": 0.64
+    },
+    "bliky": {
+        "x": 620,
+        "y": 560,
+        "eyeHue": 0.25,
+        "bandHue": 0.35
     }
 }
