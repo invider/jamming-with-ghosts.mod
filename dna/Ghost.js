@@ -56,11 +56,11 @@ class Ghost {
 
         // iris
         fill( hsl(this.eyeHue, .4, .4) )
-        circle(x + sin(dir) * d, y + cos(dir) * d, .35*r)
+        circle(x + cos(dir) * d, y + sin(dir) * d, .35*r)
 
         // pupil
         fill('#000000')
-        circle(x + sin(dir) * d, y + cos(dir) * d, .2*r)
+        circle(x + cos(dir) * d, y + sin(dir) * d, .2*r)
     }
 
     drawTeeth() {
