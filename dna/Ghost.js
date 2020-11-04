@@ -4,13 +4,13 @@ const df = {
     y: 0,
     eyeHue: .35,
     bandHue: .2,
+    scale: .25,
 }
 
 class Ghost {
 
     constructor(st) {
-        augment(this, df)
-        augment(this, st)
+        augment(this, df, st)
         this.growTeeth()
         this.growHair()
     }
@@ -82,6 +82,7 @@ class Ghost {
     draw() {
         save()
         translate(this.x, this.y)
+        scale(this.scale, this.scale)
         alpha(this.a)
 
         this.drawTeeth()
