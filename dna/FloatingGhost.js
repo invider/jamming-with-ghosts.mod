@@ -9,6 +9,14 @@ class FloatingGhost extends dna.Ghost {
         super(st)
     }
 
+    follow(lx, ly) {
+        if (lab.grid.within(lx, ly)) {
+            const x = lab.grid.gx(lx)
+            const y = lab.grid.gy(ly)
+            this.target = { x, y }
+        }
+    }
+
     evoOnTarget(dt) {
         const d = lib.math.distance(this.x, this.y, this.target.x, this.target.y)
         if (d < PRECISION) {
@@ -29,7 +37,6 @@ class FloatingGhost extends dna.Ghost {
         if (this.target) this.evoOnTarget(dt)
     }
 
-    onTouch() {
-        log('touched!')
-    }
+    // called when the ghost lands on a target cell
+    onTouch() {}
 }

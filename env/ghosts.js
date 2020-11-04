@@ -1,9 +1,9 @@
-{
+const ghosts = {
     "inky": {
         "x": 100,
         "y": 200,
         "eyeHue": 0.16,
-        "bandHue": 0.2
+        "bandHue": 0.2,
     },
     "pinky": {
         "x": 500,
@@ -30,3 +30,22 @@
         "bandHue": 0.5
     }
 }
+
+const randomWalker = {
+        init: function() {
+            this.follow(0, 0)
+        },
+
+        onTouch: function() {
+            setTimeout(() => {
+                this.follow(
+                    RND(lab.grid.w-1),
+                    RND(lab.grid.h-1)
+                )
+            }, 1000)
+        },
+}
+
+Object.values(ghosts).forEach(ghost => {
+    augment(ghost, randomWalker)
+})
