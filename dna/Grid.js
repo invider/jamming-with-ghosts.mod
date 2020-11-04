@@ -1,5 +1,6 @@
 
 const df = {
+    name: 'grid',
     x: 0,
     y: 0,
     w: 16,
@@ -12,6 +13,26 @@ class Grid {
 
     constructor(st) {
         augment(this, df, st)
+    }
+
+    lx(x) {
+        return floor((x - this.x)/this.cw)
+    }
+
+    ly(y) {
+        return floor((y - this.y)/this.ch)
+    }
+
+    gx(x) {
+        return this.x + x*this.cw + this.cw/2 
+    }
+
+    gy(y) {
+        return this.y + y*this.ch + this.ch/2
+    }
+
+    within(x, y) {
+        return (x >= 0 && x < lab.grid.w && y >= 0 && y < lab.grid.h)
     }
 
     draw() {
