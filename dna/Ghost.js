@@ -50,8 +50,10 @@ class Ghost {
         fill(.1, .1, 1)
         circle(x, y, r)
 
-        const dir = bearing(this.x + x, this.y + y,
-                        mouse.x, mouse.y)
+        const tx = this.target? this.target.x : mouse.x
+        const ty = this.target? this.target.y : mouse.y
+
+        const dir = bearing(this.x + x, this.y + y, tx, ty)
         const d = .4*r
 
         // iris
