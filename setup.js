@@ -7,7 +7,10 @@ function setup() {
         zoomOnPlusMinus: true,
     })
 
-    const grid = lab.cam.spawn('Grid')
+    const grid = lab.cam.spawn('Grid', {
+        Z: 1,
+    })
+    const vm = lab.spawn('VM')
 
     for (let [name, ghostSt] of Object.entries(env.ghosts)) {
         if (name === 'name') continue
