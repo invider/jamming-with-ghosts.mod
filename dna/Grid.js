@@ -3,8 +3,8 @@ const df = {
     name: 'grid',
     x: 0,
     y: 0,
-    w: 16,
-    h: 12,
+    gw: 16,
+    gh: 12,
     cw: 48,
     ch: 48,
 }
@@ -13,6 +13,8 @@ class Grid {
 
     constructor(st) {
         augment(this, df, st)
+        this.x = -(this.gw * this.cw)/2
+        this.y = -(this.gh * this.ch)/2
     }
 
     lx(x) {
@@ -32,14 +34,14 @@ class Grid {
     }
 
     within(x, y) {
-        return (x >= 0 && x < lab.grid.w && y >= 0 && y < lab.grid.h)
+        return (x >= 0 && x < this.gw && y >= 0 && y < this.gh)
     }
 
     draw() {
         save()
         translate(this.x + this.cw/2, this.y + this.ch/2)
-        for (let y = 0; y < this.h; y++) {
-            for (let x = 0; x < this.w; x++) {
+        for (let y = 0; y < this.gh; y++) {
+            for (let x = 0; x < this.gw; x++) {
                 const cx = x * this.cw
                 const cy = y * this.ch
 

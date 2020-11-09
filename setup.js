@@ -1,13 +1,18 @@
 function setup() {
 
-    const grid = lab.spawn('Grid')
-    grid.x = (rx(1) - grid.w * grid.cw)/2
-    grid.y = (ry(1) - grid.h * grid.ch)/2
+    const cam = lab.spawn('SlideCamera', {
+        name: 'cam',
+        x: 0,
+        y: 0,
+        zoomOnPlusMinus: true,
+    })
+
+    const grid = lab.cam.spawn('Grid')
 
     for (let [name, ghost] of Object.entries(env.ghosts)) {
         if (name === 'name') continue
         ghost.name = name
-        lab.spawn(dna.FloatingGhost, ghost)
+        lab.cam.spawn(dna.FloatingGhost, ghost)
     }
 
 }

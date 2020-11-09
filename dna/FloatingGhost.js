@@ -10,9 +10,9 @@ class FloatingGhost extends dna.Ghost {
     }
 
     follow(lx, ly) {
-        if (lab.grid.within(lx, ly)) {
-            const x = lab.grid.gx(lx)
-            const y = lab.grid.gy(ly)
+        if (lab.cam.grid.within(lx, ly)) {
+            const x = lab.cam.grid.gx(lx)
+            const y = lab.cam.grid.gy(ly)
             this.target = { x, y }
         }
     }

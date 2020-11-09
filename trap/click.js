@@ -1,7 +1,10 @@
+// trap
 function click(e) {
-    const lx = lab.grid.lx(e.pageX)
-    const ly = lab.grid.ly(e.pageY)
+    const cam = lab.cam
+    const grid = cam.grid
+    const lx = grid.lx( cam.lx(e.pageX) )
+    const ly = grid.ly( cam.ly(e.pageY) )
     //log(`${lx}:${ly}`)
-
-    lab.jeff.follow(lx, ly)
+    lab.cam.jeff.follow(lx, ly)
 }
+

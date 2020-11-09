@@ -39,8 +39,8 @@ const randomWalker = {
         onTouch: function() {
             setTimeout(() => {
                 this.follow(
-                    RND(lab.grid.w-1),
-                    RND(lab.grid.h-1)
+                    RND(lab.cam.grid.gw-1),
+                    RND(lab.cam.grid.gh-1)
                 )
             }, 1000)
         },
