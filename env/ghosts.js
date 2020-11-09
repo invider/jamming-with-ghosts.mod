@@ -46,6 +46,8 @@ const randomWalker = {
         },
 }
 
+/*
 Object.values(ghosts).forEach(ghost => {
     augment(ghost, randomWalker)
 })
+*/

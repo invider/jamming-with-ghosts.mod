@@ -1,7 +1,6 @@
 // @depends(dna/Ghost)
 
-const SPEED = 200
-const PRECISION = 10
+const PRECISION = 1
 
 class FloatingGhost extends dna.Ghost {
 
@@ -13,13 +12,15 @@ class FloatingGhost extends dna.Ghost {
         if (lab.cam.grid.within(lx, ly)) {
             const x = lab.cam.grid.gx(lx)
             const y = lab.cam.grid.gy(ly)
-            this.target = { x, y }
+            this.target = { x, y, lx, ly }
         }
     }
 
     teleport(lx, ly) {
         if (lab.cam.grid.within(lx, ly)) {
             delete this.target
+            this.gx = lx
+            this.gy = ly
             this.x = lab.cam.grid.gx(lx)
             this.y = lab.cam.grid.gy(ly)
             if (this.onTouch) this.onTouch()
@@ -30,6 +31,8 @@ class FloatingGhost extends dna.Ghost {
         const d = lib.math.distance(this.x, this.y, this.target.x, this.target.y)
         if (d < PRECISION) {
             // reached the target!
+            this.gx = this.target.lx
+            this.gy = this.target.ly
             this.x = this.target.x
             this.y = this.target.y
             delete this.target
@@ -37,8 +40,8 @@ class FloatingGhost extends dna.Ghost {
 
         } else {
             const ba = bearing(this.x, this.y, this.target.x, this.target.y)
-            this.x += cos(ba) * SPEED*dt
-            this.y += sin(ba) * SPEED*dt
+            this.x += cos(ba) * _.grid.ghostSpeed*dt
+            this.y += sin(ba) * _.grid.ghostSpeed*dt
         }
     }
 

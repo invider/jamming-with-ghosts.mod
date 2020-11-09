@@ -14,15 +14,18 @@ class VM {
         augment(this, df, st)
     }
 
-    nextStep() {
+    step() {
         // TODO evaluate all the ghosts
         this.cycle ++
+        lab.cam._ls.forEach(g => {
+            if (g.step) g.step()
+        })
     }
 
     evo(dt) {
         this.timer += dt
         if (this.timer >= this.period) {
-            this.nextStep()
+            this.step()
             this.timer = 0
         }
     }

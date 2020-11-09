@@ -2,6 +2,8 @@ const df = {
     a: 1,
     x: 0,
     y: 0,
+    gx: 0,
+    gy: 0,
     eyeHue: .35,
     bandHue: .2,
     scale: .25,
