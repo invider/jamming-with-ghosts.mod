@@ -5,6 +5,6 @@ function click(e) {
     const lx = grid.lx( cam.lx(e.pageX) )
     const ly = grid.ly( cam.ly(e.pageY) )
     //log(`${lx}:${ly}`)
-    lab.cam.jeff.follow(lx, ly)
+    if (lab.cam.focus) lab.cam.focus.follow(lx, ly)
 }
 

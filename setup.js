@@ -15,7 +15,7 @@ function setup() {
     const vm = lab.spawn('VM')
     _.vm = vm
 
-    grid.ghostSpeed = (grid.cw / vm.period) / 2
+    grid.ghostSpeed = (grid.cw / vm.period) * 2
 
     for (let [name, ghostSt] of Object.entries(env.ghosts)) {
         if (name === 'name' || name === '_meta') continue
@@ -24,4 +24,5 @@ function setup() {
         ghost.teleport(RND(lab.cam.grid.gw-1), RND(lab.cam.grid.gh-1))
     }
 
+    lab.cam.focus = lab.cam.jeff
 }
