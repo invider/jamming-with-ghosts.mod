@@ -17,6 +17,15 @@ class FloatingGhost extends dna.Ghost {
         }
     }
 
+    teleport(lx, ly) {
+        if (lab.cam.grid.within(lx, ly)) {
+            delete this.target
+            this.x = lab.cam.grid.gx(lx)
+            this.y = lab.cam.grid.gy(ly)
+            if (this.onTouch) this.onTouch()
+        }
+    }
+
     evoOnTarget(dt) {
         const d = lib.math.distance(this.x, this.y, this.target.x, this.target.y)
         if (d < PRECISION) {

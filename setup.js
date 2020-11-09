@@ -9,10 +9,11 @@ function setup() {
 
     const grid = lab.cam.spawn('Grid')
 
-    for (let [name, ghost] of Object.entries(env.ghosts)) {
+    for (let [name, ghostSt] of Object.entries(env.ghosts)) {
         if (name === 'name') continue
-        ghost.name = name
-        lab.cam.spawn(dna.FloatingGhost, ghost)
+        ghostSt.name = name
+        const ghost = lab.cam.spawn(dna.FloatingGhost, ghostSt)
+        ghost.teleport(RND(lab.cam.grid.gw-1), RND(lab.cam.grid.gh-1))
     }
 
 }
